@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="docker和虚拟机切换问题  我电脑上董事装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行：/set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板中">
+<meta name="description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
 <meta name="keywords" content="docker,vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dockerAndvm">
 <meta property="og:url" content="https://newird.github.io/2020/03/16/dockerAndvm/index.html">
 <meta property="og:site_name" content="各种笔记">
-<meta property="og:description" content="docker和虚拟机切换问题  我电脑上董事装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行：/set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板中">
+<meta property="og:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-16T09:27:55.110Z">
+<meta property="og:updated_time" content="2020-03-16T09:46:32.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dockerAndvm">
-<meta name="twitter:description" content="docker和虚拟机切换问题  我电脑上董事装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行：/set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板中">
+<meta name="twitter:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
 
 
 
@@ -332,11 +332,13 @@
       
 
       
-        <h2 id="docker和虚拟机切换问题"><a href="#docker和虚拟机切换问题" class="headerlink" title="docker和虚拟机切换问题"></a>docker和虚拟机切换问题</h2><p>  我电脑上董事装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个</p>
+        <h2 id="docker和虚拟机切换问题"><a href="#docker和虚拟机切换问题" class="headerlink" title="docker和虚拟机切换问题"></a>docker和虚拟机切换问题</h2><p>  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个</p>
 <h2 id="一、docker"><a href="#一、docker" class="headerlink" title="一、docker"></a>一、docker</h2><ol>
 <li><p>在控制面板中勾选Hyper -v</p>
 </li>
-<li><p>在cmd，以管理员身份运行：<figure class="highlight plain"><figcaption><span>/set hypervisorlaunchtype auto```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 重启</span><br><span class="line"></span><br><span class="line">### 二、虚拟机</span><br><span class="line"></span><br><span class="line">1. 在控制面板中取消勾选Hyper -v</span><br><span class="line"></span><br><span class="line">2. 在cmd中，以管理员身份运行：</span><br><span class="line"></span><br><span class="line">   ```</span><br></pre></td></tr></table></figure></p>
+<li><p>在cmd，以管理员身份运行：</p>
+<figure class="highlight plain"><figcaption><span>/set hypervisorlaunchtype auto```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 重启</span><br><span class="line"></span><br><span class="line">### 二、虚拟机</span><br><span class="line"></span><br><span class="line">1. 在控制面板中取消勾选Hyper -v</span><br><span class="line"></span><br><span class="line">2. 在cmd中，以管理员身份运行：</span><br><span class="line"></span><br><span class="line">   ```</span><br></pre></td></tr></table></figure>
+
 <p>bcdedit /set hypervisorlaunchtype off</p>
 <pre><code></code></pre></li>
 <li><p>重启</p>
