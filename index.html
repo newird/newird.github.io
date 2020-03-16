@@ -340,10 +340,17 @@
 <li><p>在控制面板中勾选Hyper -v</p>
 </li>
 <li><p>在cmd，以管理员身份运行：</p>
-<figure class="highlight plain"><figcaption><span>/set hypervisorlaunchtype auto```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 重启</span><br><span class="line"></span><br><span class="line">### 二、虚拟机</span><br><span class="line"></span><br><span class="line">1. 在控制面板中取消勾选Hyper -v</span><br><span class="line"></span><br><span class="line">2. 在cmd中，以管理员身份运行：</span><br><span class="line"></span><br><span class="line">   ```</span><br></pre></td></tr></table></figure>
-
-<p>bcdedit /set hypervisorlaunchtype off</p>
-<pre><code></code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype <span class="keyword">auto</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+</li>
+</ol>
+<h3 id="二、虚拟机"><a href="#二、虚拟机" class="headerlink" title="二、虚拟机"></a>二、虚拟机</h3><ol>
+<li><p>在控制面板中取消勾选Hyper -v</p>
+</li>
+<li><p>在cmd中，以管理员身份运行：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="keyword">set</span> hypervisorlaunchtype <span class="keyword">off</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>重启</p>
 </li>
 </ol>

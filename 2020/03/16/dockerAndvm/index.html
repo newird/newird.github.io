@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
+<meta name="description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： 1bcdedit /set hypervisorlaunchtype auto  重启   二、虚拟机 在控制面板中取消勾选Hype">
 <meta name="keywords" content="docker,vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dockerAndvm">
 <meta property="og:url" content="https://newird.github.io/2020/03/16/dockerAndvm/index.html">
 <meta property="og:site_name" content="各种笔记">
-<meta property="og:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
+<meta property="og:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： 1bcdedit /set hypervisorlaunchtype auto  重启   二、虚拟机 在控制面板中取消勾选Hype">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-16T09:46:32.339Z">
+<meta property="og:updated_time" content="2020-03-16T09:58:56.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dockerAndvm">
-<meta name="twitter:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： /set hypervisorlaunchtype auto```123456789103. 重启### 二、虚拟机1. 在控制面板">
+<meta name="twitter:description" content="docker和虚拟机切换问题  我电脑上同时装了docker和VMware，两个打开一个另一个就会报兼容错误，我总结了一下切换方法，总的来说还是比较麻烦，要重启才行，以后尽量只用一个 一、docker 在控制面板中勾选Hyper -v  在cmd，以管理员身份运行： 1bcdedit /set hypervisorlaunchtype auto  重启   二、虚拟机 在控制面板中取消勾选Hype">
 
 
 
@@ -337,10 +337,17 @@
 <li><p>在控制面板中勾选Hyper -v</p>
 </li>
 <li><p>在cmd，以管理员身份运行：</p>
-<figure class="highlight plain"><figcaption><span>/set hypervisorlaunchtype auto```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 重启</span><br><span class="line"></span><br><span class="line">### 二、虚拟机</span><br><span class="line"></span><br><span class="line">1. 在控制面板中取消勾选Hyper -v</span><br><span class="line"></span><br><span class="line">2. 在cmd中，以管理员身份运行：</span><br><span class="line"></span><br><span class="line">   ```</span><br></pre></td></tr></table></figure>
-
-<p>bcdedit /set hypervisorlaunchtype off</p>
-<pre><code></code></pre></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype <span class="keyword">auto</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+</li>
+</ol>
+<h3 id="二、虚拟机"><a href="#二、虚拟机" class="headerlink" title="二、虚拟机"></a>二、虚拟机</h3><ol>
+<li><p>在控制面板中取消勾选Hyper -v</p>
+</li>
+<li><p>在cmd中，以管理员身份运行：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="keyword">set</span> hypervisorlaunchtype <span class="keyword">off</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>重启</p>
 </li>
 </ol>
@@ -554,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker和虚拟机切换问题"><span class="nav-number">1.</span> <span class="nav-text">docker和虚拟机切换问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、docker"><span class="nav-number">2.</span> <span class="nav-text">一、docker</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker和虚拟机切换问题"><span class="nav-number">1.</span> <span class="nav-text">docker和虚拟机切换问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、docker"><span class="nav-number">2.</span> <span class="nav-text">一、docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、虚拟机"><span class="nav-number">2.1.</span> <span class="nav-text">二、虚拟机</span></a></li></ol></li></ol></div>
             
 
           </div>
