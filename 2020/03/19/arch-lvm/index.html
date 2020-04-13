@@ -334,11 +334,11 @@
       
         <h2 id="安装arch到LVM"><a href="#安装arch到LVM" class="headerlink" title="安装arch到LVM"></a>安装arch到LVM</h2><p>​    原本硬盘上装了ubuntu和arch两个系统，但最近被Ubuntu气到了，于是包Ubuntu的分区给了arch，结果启动项丢了，索性重新装arch。</p>
 <h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h3><p>下载ios，烧入U盘</p>
-<h3 id="2-查看磁盘"><a href="#2-查看磁盘" class="headerlink" title="2.查看磁盘"></a>2.查看磁盘</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br><span class="line">fdisk /dev/sda</span><br><span class="line">	o</span><br><span class="line">	n</span><br><span class="line">	p</span><br><span class="line">	a</span><br><span class="line">	1</span><br><span class="line">	t</span><br><span class="line">	1</span><br><span class="line">	8E</span><br><span class="line">	w</span><br><span class="line"><span class="meta">#</span>分区</span><br><span class="line">pvcreate --dataalignment 1m /dev/sda1</span><br><span class="line">vgcreate volgroup0 /dev/sda1</span><br><span class="line">lvcreate -L 30GB volgroup0 -n lv_root</span><br><span class="line">lvcreate -L 2GB volgroup0 -n lv_swap</span><br><span class="line">lvcreate -l 100%FREE volgroup0 -n lv_home</span><br><span class="line">modprobe dm_mod</span><br><span class="line"><span class="meta">#</span>检查</span><br><span class="line">vgscan </span><br><span class="line">vgchange -ay</span><br><span class="line"><span class="meta">#</span>格式</span><br><span class="line">mkfs.ext4 /dev/volgroup0/lv_root</span><br><span class="line">mkfs.ext4 /dev/volgroup0/lv_home</span><br></pre></td></tr></table></figure>
+<h3 id="2-查看磁盘"><a href="#2-查看磁盘" class="headerlink" title="2.查看磁盘"></a>2.查看磁盘</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br><span class="line">fdisk /dev/sda</span><br><span class="line">	o</span><br><span class="line">	n</span><br><span class="line">	p</span><br><span class="line">	a</span><br><span class="line">	1</span><br><span class="line">	t</span><br><span class="line">	1</span><br><span class="line">	8E</span><br><span class="line">	w</span><br><span class="line"><span class="meta">#</span><span class="bash">分区</span></span><br><span class="line">pvcreate --dataalignment 1m /dev/sda1</span><br><span class="line">vgcreate volgroup0 /dev/sda1</span><br><span class="line">lvcreate -L 30GB volgroup0 -n lv_root</span><br><span class="line">lvcreate -L 2GB volgroup0 -n lv_swap</span><br><span class="line">lvcreate -l 100%FREE volgroup0 -n lv_home</span><br><span class="line">modprobe dm_mod</span><br><span class="line"><span class="meta">#</span><span class="bash">检查</span></span><br><span class="line">vgscan </span><br><span class="line">vgchange -ay</span><br><span class="line"><span class="meta">#</span><span class="bash">格式</span></span><br><span class="line">mkfs.ext4 /dev/volgroup0/lv_root</span><br><span class="line">mkfs.ext4 /dev/volgroup0/lv_home</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-联网"><a href="#3-联网" class="headerlink" title="3. 联网"></a>3. 联网</h3><p>如果是有线的话，直接就连上了</p>
 <p>下面是无线网的方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/netctl/etamples/wareless-wpa /etc/netctl/wireless-name</span><br><span class="line">nano /etc/netctl/wireless-name</span><br><span class="line"><span class="meta">	#</span>修改</span><br><span class="line">	interface= (ip a查看)</span><br><span class="line">	ESSID=“wifiname”</span><br><span class="line">	Key="passowrd"</span><br><span class="line">	&lt;C-o&gt; &lt;C-x&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/netctl/etamples/wareless-wpa /etc/netctl/wireless-name</span><br><span class="line">nano /etc/netctl/wireless-name</span><br><span class="line"><span class="meta">	#</span><span class="bash">修改</span></span><br><span class="line">	interface= (ip a查看)</span><br><span class="line">	ESSID=“wifiname”</span><br><span class="line">	Key="passowrd"</span><br><span class="line">	&lt;C-o&gt; &lt;C-x&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wifi-<span class="keyword">menu</span></span><br><span class="line"><span class="keyword">vim</span> /etc/pacman.d/mirror.<span class="keyword">list</span></span><br></pre></td></tr></table></figure>
 
@@ -395,6 +395,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="../../../04/13/arch-rollback/" rel="prev" title="arch_rollback">
+                arch_rollback <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -473,7 +477,7 @@
               
                 <a href="../../../../archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -484,7 +488,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
